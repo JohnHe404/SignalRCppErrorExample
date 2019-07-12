@@ -11,6 +11,8 @@ namespace ConsoleApp1
             var connection = new HubConnectionBuilder().WithUrl("https://localhost:44357/chathub").Build();
             await connection.StartAsync();
             Console.WriteLine("client connection state:" + connection.State);
+            await connection.StopAsync();
+            await connection.DisposeAsync();
         }
         static void Main(string[] args)
         {
