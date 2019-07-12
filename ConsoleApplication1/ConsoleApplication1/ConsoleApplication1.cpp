@@ -90,6 +90,7 @@ void running()
 	std::string message = "kill master";
 
 	signalr::hub_connection connection("http://localhost:54052/ChatHub", signalr::trace_level::all, std::make_shared<logger>());
+	//signalr::hub_connection connection("http://localhost:54052/chathub", signalr::trace_level::all, std::make_shared<logger>());
 	connection.on("ReceiveMessage", [](const web::json::value& m)
 		{
 			ucout << std::endl << m.at(0).as_string() << /*U(" wrote:") << m.at(1).as_string() <<*/ std::endl << U("Enter your message: ");
